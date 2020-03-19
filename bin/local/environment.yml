@@ -1,0 +1,5 @@
+dependencies:
+  - python=3.8.1
+  - jupyter
+  - pip:
+    - -r ../../requirements.txt

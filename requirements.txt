@@ -1,0 +1,14 @@
+alembic
+dash
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+pandas==0.25.1
+SQLAlchemy
+urllib3
+xlsxwriter
+pandas_datareader
+geopandas
+descartes
+plotly-geo
+pyshp
