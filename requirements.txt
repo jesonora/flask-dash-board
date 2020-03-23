@@ -12,3 +12,5 @@ geopandas
 descartes
 plotly-geo
 pyshp
+psycopg2
+geoalchemy2
