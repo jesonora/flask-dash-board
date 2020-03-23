@@ -55,7 +55,7 @@ def register_callbacks(dashapp):
 
         fig = px.choropleth(df_drop, geojson=df_drop, color="nat2018",
                             locations="name_2", featureidkey="properties.name_2",
-                            projection="mercator"
+                            projection='equirectangular'
                             )
         fig.update_geos(visible=False, fitbounds='geojson')
         fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0},

@@ -20,7 +20,7 @@ def layout(app):
 
     fig = px.choropleth(map_data, geojson=map_data, color="nat2018",
                         locations="name_2", featureidkey="properties.name_2",
-                        projection="mercator"
+                        projection='equirectangular'
                        )
     fig.update_geos(fitbounds="locations", visible=False)
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, coloraxis_showscale=False)
@@ -46,9 +46,10 @@ def layout(app):
                 value='Spain',
                 disabled=True
             ),
-
+            html.Div([
             dcc.Graph(id='graph',
                       figure=fig)
+            ], className="center")
         ], className="subpage")
     ], className="page")
     return layout
