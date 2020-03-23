@@ -46,13 +46,14 @@ def upload_csv_p():
                 week = row[9],
                 month = row[10],
                 quarter = row[11],
-                sessions_aa = row[12],
-                bookings_aa = row[13],
-                revenue_aa = float(row[14]),
-                spend_aa = row[15],
-                category = row[16],
-                birst_category = row[17],
-                ga_category = row[18])
+                year=row[12],
+                sessions_aa = row[13],
+                bookings_aa = row[14],
+                revenue_aa = float(row[15]),
+                spend_aa = row[16],
+                category = row[17],
+                birst_category = row[18],
+                ga_category = row[19])
                 for row in csv_reader]
         db.session.bulk_save_objects(bulk)
         db.session.commit()

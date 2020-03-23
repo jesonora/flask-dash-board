@@ -15,6 +15,7 @@ class Portfolio(db.Model):
     week = db.Column(db.Integer())
     month = db.Column(db.Integer())
     quarter = db.Column(db.Integer())
+    year = db.Column(db.Integer())
     sessions_aa = db.Column(db.Integer())
     bookings_aa = db.Column(db.Integer())
     revenue_aa = db.Column(db.Integer())

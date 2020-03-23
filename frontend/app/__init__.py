@@ -12,17 +12,13 @@ def create_app():
     register_extensions(server)
     register_blueprints(server)
 
-    from app.dashapp1.layout import layout as layout1
-    from app.dashapp1.callbacks import register_callbacks as register_callbacks1
-    register_dashapp(server, 'Dashapp 1', 'dashboard', layout1, register_callbacks1)
+    from app.dash_table.layout import layout as layout2
+    from app.dash_table.callbacks import register_callbacks as register_callbacks2
+    register_dashapp(server, 'dash_table', 'dash_table', layout2(server), register_callbacks2)
 
-    from app.dashapp2.layout import layout as layout2
-    from app.dashapp2.callbacks import register_callbacks as register_callbacks2
-    register_dashapp(server, 'Dashapp 2', 'graph', layout2, register_callbacks2)
-
-    from app.dashapp3.layout import layout as layout3
-    from app.dashapp3.callbacks import register_callbacks as register_callbacks3
-    register_dashapp(server, 'Dashapp 3', 'map', layout3(server), register_callbacks3)
+    from app.dash_map.layout import layout as layout3
+    from app.dash_map.callbacks import register_callbacks as register_callbacks3
+    register_dashapp(server, 'dash_map', 'dash_map', layout3(server), register_callbacks3)
 
     return server
 
@@ -38,6 +34,7 @@ def register_dashapp(app, title, base_pathname, layout, register_callbacks_fun, 
                            external_stylesheets=css_sheet)
 
     with app.app_context():
+            my_dashapp.index = get_root_path(__name__) + f'/{base_pathname}/templates/index.html'
             my_dashapp.title = title
             my_dashapp.layout = layout
             register_callbacks_fun(my_dashapp)
