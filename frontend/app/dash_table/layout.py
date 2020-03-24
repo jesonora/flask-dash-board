@@ -12,9 +12,10 @@ def layout(app):
 
     with app.app_context():
         query = (db.session.query(Portfolio.travel_product,
+                                  Portfolio.year,
                                   db.func.sum(Portfolio.spend_ac).label('spend_ac'),
                                   db.func.sum(Portfolio.bookings_ac).label('bookings_ac'))) \
-            .group_by(Portfolio.travel_product).statement
+            .group_by(Portfolio.travel_product,Portfolio.year).statement
         df = pd.read_sql(query, con = db.session.bind)
 
 
