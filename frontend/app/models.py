@@ -52,3 +52,6 @@ class GeoData(db.Model):
     nat2018 = db.Column(db.Float())
     geometry = db.Column(db.String())
 
+    def __repr__(self):
+        return "<User: {}>".format(self.username)
+
